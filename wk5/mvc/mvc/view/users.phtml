@@ -1,0 +1,43 @@
+        <?php include 'view/inc/header.inc.php'; ?>
+        <form>
+            <input type="hidden" name='page' value="users">
+            <label>Filter by:</label>
+            <?php
+            foreach ($user_types as $type) {
+                echo "<input type='checkbox' name='user_type' value=\"$type\">" . ucfirst($type);
+                $type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_STRING);
+            }
+            foreach ($statuses as $status) {
+                echo "<input type='checkbox' name='status' value=\"$status\">" . ucfirst($status);
+                $status = filter_input(INPUT_POST, 'status', FILTER_SANITIZE_STRING);
+            }
+            ?>
+            <input type="submit" value="Submit">
+        </form>
+        <br>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>User</th>
+                    <th>Status</th>
+                    <th>Client</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php foreach ($users as $user) : ?>
+                    <?= "<tr>" ?>
+                    <td><?= $user["id"] ?></td>
+                    <td><?= $user["f_name"] ?></td>
+                    <td><?= $user["l_name"] ?></td>
+                    <td><?= $user["user_type"] ?></td>
+                    <td><?= $user["status"] ?></td>
+                    <td><?= $user["client"] ?></td>
+                    <?= "</tr>" ?>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <?php include 'view/inc/footer.inc.php'; ?>
