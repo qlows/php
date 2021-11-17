@@ -11,9 +11,13 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Age</th>
+      <th scope="col">Type</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Model</th>
+      <th scope="col">Size</th>
+      <th scope="col">Price</th>
+      <th scope="col">Sale</th>
+      <th scope="col">Description</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -21,9 +25,22 @@
     <?php foreach($users as $key => $user): ?>
     <tr>
       <td><?= $key + 1 ?></td>
+      <!-- Type -->
+      <td><?= $user[0] ?></td>
+      <!-- Brand -->
       <td><?= $user[1] ?></td>
+      <!-- Model -->
       <td><?= $user[2] ?></td>
+      <!-- Size -->
       <td><?= $user[3] ?></td>
+      <!-- Price -->
+      <td><?= $user[4] ?></td>
+      <!-- Sale -->
+      <td style="color: red;"> 
+        <?= $user[5]?>
+      </td>
+      <!-- Description -->
+      <td><?= $user[6] ?></td>
       <td>
         <a class="btn btn-primary" href="?page=update&id=<?=$user[0]?>" role="button">Update</a>
         <?php include "delete.phtml"?>
@@ -32,11 +49,10 @@
     <?php endforeach; ?>
   </tbody>
 </table>
+<!-- change color -->
 
 
-
-
-
+        
 <?php else: ?>
     <h3>No data to display!</h3>
     <?php endif; ?>

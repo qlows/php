@@ -6,10 +6,20 @@ $users = get_data();
 print_r($users);
 echo "</pre>";
 exit; */
-$id = "";
-$f_name = "";
-$l_name = "";
-$age = "";
+
+/* $f_name = ""; */
+/* $l_name = ""; */
+/* $age = ""; */
+$id = ""; 
+$type = "";
+$brand = "";
+$model = "";
+$size = "";
+$price = "";
+$sale = "";
+$desc = "";
+$tv ="";
+
 $page = "";
 if(isset($_GET["page"]) && !empty($_GET["page"])){
    $page = filter_input(INPUT_GET, "page", FILTER_SANITIZE_STRING);
@@ -20,10 +30,16 @@ if(isset($_GET["page"]) && !empty($_GET["page"])){
             header("Location:?users");
         }
         else{
-            $id = $record[0];
-            $f_name = $record[1];
-            $l_name = $record[2];
-            $age = $record[3];
+            $id = $record[1];
+            $type = $record[2];
+            $brand = $record[3];
+            $model = $record[4];
+            $size = $record[5];
+            $price = $record[6];
+           /* $sale = $record[7];*/
+            /* $desc = $record[7];
+            $tv = $record[8];  */
+            
         }
     }
 }
@@ -32,17 +48,29 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     if(isset($_POST["action"])){
         switch($_POST["action"]){
             case "create":
-                $f_name = $_POST["fName"];
-                $l_name = $_POST["lName"];
-                $age = $_POST["age"];
-                create_record([$f_name, $l_name, $age]);
+                
+                $type = $_POST["typeName"];
+                $brand = $_POST["brandName"];
+                $model = $_POST["modelName"];
+                $size = $_POST["sizeName"];
+                $price = $_POST["priceName"];
+                $sale = $_POST["saleName"];
+                $desc = $_POST["descName"];
+                $tv = $_POST["tvName"];
+                
+                create_record([$type, $brand, $model, $size, $price, $sale, $desc, $tv]);
                 break;
 
             case "update":
-                    $f_name = $_POST["fName"];
-                    $l_name = $_POST["lName"];
-                    $age = $_POST["age"];
-                    if(update_record($users, [$id, $f_name, $l_name, $age])){
+                $type = $_POST["typeName"];
+                $brand = $_POST["brandName"];
+                $model = $_POST["modelName"];
+                $size = $_POST["sizeName"];
+                $price = $_POST["priceName"];
+                $sale = $_POST["saleName"];
+                $desc = $_POST["descName"];
+                $tv = $_POST["tvName"];
+                    if(update_record($users, [$id, $type, $brand, $model, $size, $price, $sale, $desc, $tv])){
                         echo "Record updated successfully";
                     }
                     break;
@@ -78,7 +106,5 @@ else{
     include "users.phtml";
 }
 
-
-//include "users.phtml";
 /* echo "<hr>";
 show_source(__FILE__); */

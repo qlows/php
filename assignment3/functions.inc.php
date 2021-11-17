@@ -1,5 +1,5 @@
 <?php
-function create_record($record, $file_name="users.csv"){
+function create_record($record, $file_name="tvs.csv"){
     $handle = fopen($file_name, "a") or die("File could not open!");
     $id = uniqid();
     array_unshift($record, $id);
@@ -7,7 +7,7 @@ function create_record($record, $file_name="users.csv"){
     fclose($handle);
 }
 
-function get_data($file_name="users.csv"){
+function get_data($file_name="tvs.csv"){
     $handle = fopen($file_name, "r") or die("File could not open!");
     $users = [];
     while($entries = fgetcsv($handle)){
@@ -25,7 +25,7 @@ function get_record($records, $id){
     else return null;
 }
 
-function update_record($records, $record, $file_name="users.csv"){
+function update_record($records, $record, $file_name="tvs.csv"){
     $index = array_search($record[0], array_column($records, 0));
     if($index >= 0){
         $data = [];
@@ -40,7 +40,7 @@ function update_record($records, $record, $file_name="users.csv"){
     else return false;
 }
 
-function delete_record($records, $id, $file_name="users.csv"){
+function delete_record($records, $id, $file_name="tvs.csv"){
     $index = array_search($id, array_column($records, 0));
     if($index >= 0){
         array_splice($records, $index, 1);
@@ -51,8 +51,8 @@ function delete_record($records, $id, $file_name="users.csv"){
     }
 }
 
-function overwrite_file($records, $file_name="users.csv"){
-    $file = fopen($file_name, "w") or die("couldnt open the file for writing");
+function overwrite_file($records, $file_name="tvs.csv"){
+    $file = fopen($file_name, "w") or die("couldn't open the file for writing");
     foreach($records as $record){
         fputcsv($file, $record);
     }
