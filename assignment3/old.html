@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Assignment 3">
+  <meta name="author" content="Umit Kilinc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 3</title>
+</head>
+
+<body>
+  <form action="/functions.inc.php">
+
+    <div class="model">
+      <label class="modelForm">Model:</label>
+      <input type="text" class="formType" placeholder="Please enter the model">
+      <!-- <div class="textForm">Please enter the model</div> -->
+
+    </div><br>
+    <div class="model">
+      <label class="modelForm">Size:</label>
+      <input type="number" class="formType" placeholder="Please enter the size">
+      <!-- <div class="textForm">Please enter the model</div> -->
+
+    </div><br>
+    <div class="model">
+      <label for="inputModel" class="modelForm">Price:</label>
+      <input type="number" step="0.01" class="formType" placeholder="Please enter the price">
+      <!-- <div class="textForm">Please enter the model</div> -->
+
+    </div><br>
+
+    <br>
+    <label for="tv">Choose a type of TV:</label>
+    <select name="tv" id="tv" required>
+      <option value="">Select One</option>
+      <option value="LCD">LCD</option>
+      <option value="LED">LED</option>
+      <option value="OLED">OLED</option>
+      <option value="QLED">QLED</option>
+    </select>
+
+    <p>Please select your brand:</p>
+      <input type="radio" id="lg" name="tvBrand" value="LG" required="required">
+      <label for="lg">LG</label><br>
+      <input type="radio" id="samsung" name="tvBrand" value="Samsung" required="required">
+      <label for="samsung">Samsung</label><br>
+      <input type="radio" id="sony" name="tvBrand" value="Sony" required="required">
+      <label for="sony">Sony</label><br>
+    <input type="radio" id="toshiba" name="tvBrand" value="Toshiba" required="required">
+      <label for="toshiba">Toshiba</label><br>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+
+</html>

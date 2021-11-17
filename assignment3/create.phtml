@@ -1,0 +1,24 @@
+<?php include "header.inc.php";
+
+?>
+<div class="container">
+    <a class="btn btn-primary" href="?page=users" role="button">Back to view record</a>
+    <form method="POST">
+        <input type="hidden" name="action" value="create">
+        <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input type="text" name="fName" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" name="lName" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input type="number" name="age" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <?php include "footer.inc.php"; ?>

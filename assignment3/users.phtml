@@ -1,0 +1,45 @@
+<?php include "header.inc.php"; ?>
+<br>
+
+<div class="container">
+    <a class="btn btn-primary" href="?page=create" role="button">Add Record</a>
+
+<?php if(count($users) > 0): ?>
+
+<table class="table caption-top">
+  <caption>List of users</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Age</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($users as $key => $user): ?>
+    <tr>
+      <td><?= $key + 1 ?></td>
+      <td><?= $user[1] ?></td>
+      <td><?= $user[2] ?></td>
+      <td><?= $user[3] ?></td>
+      <td>
+        <a class="btn btn-primary" href="?page=update&id=<?=$user[0]?>" role="button">Update</a>
+        <?php include "delete.phtml"?>
+    </td>
+    </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+
+
+
+
+
+<?php else: ?>
+    <h3>No data to display!</h3>
+    <?php endif; ?>
+
+
+<?php include "footer.inc.php"; ?>
